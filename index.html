@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Youtube Video Thumbnail 截取器</title>
+
+    <!-- css link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
+
+    <!-- js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/execute.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <div class="container bg d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <ul class="glass">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container">
+            <div class="container d-flex justify-content-center align-items-center glass_screen">
+                <div class="d-flex justify-content-center">
+                    <div class="card-body text-center">
+                        <div class="card-header">
+                            <h2><span class="badge text-bg-light rounded-pill">Youtube Video Thumbnail 截取器</span></h2>
+                        </div>
+                        <div class="card-subtitle">
+                            <span class="badge rounded-pill text-bg-info">給我youtube 影片ID，我就把縮略圖拿出來給你看 :D</span>
+                        </div>
+                        <input type="text" id="url" placeholder="https://www.youtube.com/watch?v=chLFshf6V1A">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#thumbnailModal"
+                            id="btn">▶</button>
+                        <div class="card-img pt-2 pb-3">
+                            <div class="card-footer">
+                                <h3>原理是什麼？</h3>
+                                <ul class="list-unstyled">
+                                    <li>基本上youtube的縮略圖是根據影片的ID來排列的，只要知道了這個規律以及各種解析度的後綴鏈接，就可以輕鬆拿到該影片的縮略圖～</li>
+                                    <li>主要用途：不小心刪掉做好的縮略圖想要拿回來的時候，參考用途，想看看縮略圖放大縮小會怎麼樣等功能。</li>
+                                    <li>注：由於上傳者的縮略圖大小不一，所以有些圖片顯示不出來是很正常的事情，因為他的縮略圖大小就這麼大……</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="thumbnailModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">影片缩略图截取结果：</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Thumbnails will be added here -->
+                </div>
+                <div class="modal-footer">
+                    <h6 class="modal-subtitle" id="exampleModalLabel">如果你看不到任何图片，大概率要么打错url，要么上传者的缩略图就没有那么大……</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Call appendImage function when the modal is shown
+        $('#thumbnailModal').on('show.bs.modal', appendImage);
+    </script>
+</body>
+
+</html>
