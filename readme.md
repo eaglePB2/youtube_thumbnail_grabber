@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/eaglePB2/youtube_thumbnail_grabber/refs/heads/main/preview.png)
 
-![first webpage status](https://github.com/eaglePB2/youtube_thumbnail_grabber/actions/workflows/static.yml/badge.svg)
+![first webpage status](https://github.com/eaglePB2/youtube_thumbnail_grabber/actions/workflows/jekyll-gh-pages.yml/badge.svg)
 <hr>
 
 ### Hosted by:
